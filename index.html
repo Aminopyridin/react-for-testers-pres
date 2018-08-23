@@ -47,8 +47,7 @@
 ## Сначала самое важное
 
 Скачиваем все необходимые пакеты Node.js:
-```
-cd tasks
+```cmd
 npm install
 ```
 
@@ -76,7 +75,7 @@ npm run start
 
 ### Темы сегодняшнего дня
 
-- Почему появился Реакт? Куда делся jQuery? — Краткая история фронтенда
+- Почему появился Реакт? Куда делся jQuery?
 - Что такое Реакт?
 - Что можно делать на Реакте?
 - Как это все потом тестить?
@@ -264,6 +263,14 @@ function ButtonWithHandle() {
 
 React решает одну проблему и делает это хорошо
 
+
+***
+
+## Так Реакт завоевал мир
+
+Хотя много где еще жив jQuery
+
+
 </script></section>
 
 <!-- ************************************************* -->
@@ -280,8 +287,8 @@ React решает одну проблему и делает это хорошо
 
 ```js
 ReactDom.render(
-<div className="fromReact"></div>,
-document.getElementById('app')
+    <div className="fromReact"></div>,
+    document.getElementById('app')
 );
 ```
 
@@ -498,8 +505,6 @@ class Counter extends React.Component {
 ### Нюансы
 
 ```js
-// Стрелочные функции в JS берут this там, где создаются,
-// поэтому их можно безопасно передавать в onClick
 handleClick = () => {
     // В state есть value и step, но передаем мы одно — только оно и обновится
     this.setState({
@@ -575,7 +580,7 @@ describe('<Page>', () => {
 ### Пример теста с обработчиком кликов
 
 ```js
-test('click with right argument', () => {
+test('click with right arguments', () => {
     let mockOnClick = jest.fn();
 
     const wrapper = shallow(<Row name='I'
@@ -590,6 +595,9 @@ test('click with right argument', () => {
 ***
 
 ### Задача 4. Tests
+
+    - условие задачи в файле `index.test.js`
+    - запуск тестов командой `npm test`
 
 </script></section>
 
