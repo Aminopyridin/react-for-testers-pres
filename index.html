@@ -605,20 +605,86 @@ test('click with right arguments', () => {
 
 <section data-markdown><script type="text/template">
 
+## *Работа с сервером
+
+***
+
+### Как получить данные с сервера
+
+```js
+const result = await fetch('https://api.github.com/users/octocat')
+    .then(response => {
+        if (response.status === 200) {
+            return response.json()
+        }
+    })
+```
+
+***
+
+### Формат json
+
+Обычно данные с сервера приходят в формате json
+
+```json
+{
+    "a": "str",
+    "b": 234
+}
+```
+
+***
+
+### Как этим пользоваться в Реакте
+
+```js
+class MyComponent extends React.Component {
+    render () {
+        return <button onClick={this.load}>Загрузить</button>
+    }
+
+    async load = () => {
+        const result = await fetch('https://api.github.com/users/octocat/orgs')
+            .then(response => {
+                if (response.status === 200) {
+                    return response.json()
+                }
+            })
+        this.setState({
+            data: result
+        })
+    }
+}
+```
+
+***
+
+### Как узнать, что пришло с сервера
+
+![вкладка network](assets/network.png)
+
+</script></section>
+
+<!-- ************************************************* -->
+
+<section data-markdown><script type="text/template">
+
+
 ### Что мы сегодня обсудили
 
 - Что такое Реакт
 - Как "верстать" на Реакте
-- Как работает компонентный подход
+- Что такое компонентный подход
+- Как поправить готовые компоненты
+- Как использовать готовые компоненты
 - Как это все тестируется
 
 ***
 
 ### Что осталось за бортом
 
-- как это все обменивается данными с сервером
-- все многообразие компонентов
-- методы жизненного цикла
+- все многообразие видов компонентов
+- методы жизненного цикла — как компонент рождается, живет и умирает
 - доступ к элементам на странице
 - производительность
 
